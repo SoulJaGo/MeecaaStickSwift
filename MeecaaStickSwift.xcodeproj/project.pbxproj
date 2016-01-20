@@ -37,6 +37,7 @@
 		969B798D1C4F6EEE00DFC03E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */; };
 		969B798F1C4F732A00DFC03E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798E1C4F732A00DFC03E /* Header.swift */; };
 		969B79911C4F8ED200DFC03E /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */; };
+		96AE65771C4FAFC2001E0E7E /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE65761C4FAFC2001E0E7E /* AboutUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		969B798E1C4F732A00DFC03E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
+		96AE65761C4FAFC2001E0E7E /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		D0B8E06A66CD0464835BBE74 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 		967D8A181C4E0BA5004207E2 /* MeecaaStickSwift */ = {
 			isa = PBXGroup;
 			children = (
+				96AE65751C4FAF99001E0E7E /* AboutUs(关于我们) */,
 				969B79891C4F6A0B00DFC03E /* BasicViewController(基础视图类) */,
 				9613036B1C4E773300CB9666 /* Home(主页面) */,
 				967D8A721C4E360F004207E2 /* Main(主视图) */,
@@ -239,6 +242,15 @@
 			);
 			name = "BasicViewController(基础视图类)";
 			path = BasicViewController;
+			sourceTree = "<group>";
+		};
+		96AE65751C4FAF99001E0E7E /* AboutUs(关于我们) */ = {
+			isa = PBXGroup;
+			children = (
+				96AE65761C4FAFC2001E0E7E /* AboutUsViewController.swift */,
+			);
+			name = "AboutUs(关于我们)";
+			path = AboutUS;
 			sourceTree = "<group>";
 		};
 		C258010A4B6BD34E0EA04885 /* Pods */ = {
@@ -382,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				969B798B1C4F6A5600DFC03E /* BasicNavigationController.swift in Sources */,
+				96AE65771C4FAFC2001E0E7E /* AboutUsViewController.swift in Sources */,
 				967D8A5C1C4E11F2004207E2 /* UIImage+GIF.m in Sources */,
 				967D8A571C4E11F2004207E2 /* SDWebImageDownloader.m in Sources */,
 				969B79881C4F69AA00DFC03E /* MainTabBarController.swift in Sources */,

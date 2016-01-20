@@ -13,7 +13,7 @@ class RightMenuViewController: UIViewController,UITableViewDataSource,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView = UITableView(frame: CGRectMake(0, 0, 200, UIScreen.mainScreen().bounds.height), style: .Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 0, 160, UIScreen.mainScreen().bounds.height), style: .Plain)
         self.view.frame = self.tableView.frame
         self.tableView.backgroundColor = MENU_BACKGROUND_COLOR
         
@@ -24,7 +24,7 @@ class RightMenuViewController: UIViewController,UITableViewDataSource,UITableVie
         self.view.addSubview(self.tableView)
         
         let headerView = UIView(frame: CGRectMake(0,0,kScreen_Width,160))
-        let headerImageView = UIImageView(frame: CGRectMake(20, 40, 160, 60))
+        let headerImageView = UIImageView(frame: CGRectMake(0, 40, 160, 60))
         headerImageView.image = UIImage(named: "left_menu_icon")
         headerView.addSubview(headerImageView)
         self.tableView.tableHeaderView = headerView

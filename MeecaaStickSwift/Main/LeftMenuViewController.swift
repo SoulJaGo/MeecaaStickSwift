@@ -7,13 +7,17 @@
 //
 
 import UIKit
+protocol LeftMenuViewDelegate:NSObjectProtocol {
+    func onClickCell(tableView:UITableView, indexPath:NSIndexPath)
+}
 
 class LeftMenuViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var tableView = UITableView() //菜单tableView
+    internal var delegate:LeftMenuViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView = UITableView(frame: CGRectMake(0, 0, 200, UIScreen.mainScreen().bounds.height), style: .Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 0, 160, UIScreen.mainScreen().bounds.height), style: .Plain)
         self.view.frame = self.tableView.frame
         self.tableView.backgroundColor = MENU_BACKGROUND_COLOR
         
@@ -24,7 +28,7 @@ class LeftMenuViewController: UIViewController,UITableViewDataSource,UITableView
         self.view.addSubview(self.tableView)
         
         let headerView = UIView(frame: CGRectMake(0,0,kScreen_Width,160))
-        let headerImageView = UIImageView(frame: CGRectMake(20, 40, 160, 60))
+        let headerImageView = UIImageView(frame: CGRectMake(0, 40, 160, 60))
         headerImageView.image = UIImage(named: "left_menu_icon")
         headerView.addSubview(headerImageView)
         self.tableView.tableHeaderView = headerView
@@ -65,5 +69,8 @@ class LeftMenuViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if ((self.delegate?.respondsToSelector("onClickCell")) != nil) {
+            self.delegate?.onClickCell(tableView, indexPath: indexPath)
+        }
     }
 }

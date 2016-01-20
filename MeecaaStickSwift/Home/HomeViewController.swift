@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     func setupNav() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "左菜单", style: UIBarButtonItemStyle.Done, target: self, action: Selector("switchLeftMenu"))
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "右菜单", style: UIBarButtonItemStyle.Done, target: self, action: Selector("showRightMenu"))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "右菜单", style: UIBarButtonItemStyle.Done, target: self, action: Selector("switchRightMenu"))
     }
     
     /*切换左侧菜单*/
@@ -35,10 +35,23 @@ class HomeViewController: UIViewController {
         UIView.animateWithDuration(0.5) { () -> Void in
             let mainTabBarController = self.tabBarController as! MainTabBarController
             
-            if (mainTabBarController.view.frame.origin.x == 200) {
+            if (mainTabBarController.view.frame.origin.x == 160) {
                 mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
             } else {
-                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(200, 0)
+                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(160, 0)
+            }
+        }
+    }
+    
+    /*切换右侧菜单*/
+    func switchRightMenu() {
+        UIView.animateWithDuration(0.5) { () -> Void in
+            let mainTabBarController = self.tabBarController as! MainTabBarController
+            
+            if (mainTabBarController.view.frame.origin.x == 0) {
+                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(-160, 0)
+            } else {
+                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
             }
         }
     }
@@ -53,7 +66,7 @@ class HomeViewController: UIViewController {
         } else {
             UIView.animateWithDuration(0.5) { () -> Void in
                 let mainTabBarController = self.tabBarController as! MainTabBarController
-                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(200, 0)
+                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(160, 0)
             }
         }
     }
@@ -63,7 +76,7 @@ class HomeViewController: UIViewController {
         if (recognizer.locationInView(self.view).x > (kScreen_Width / 2)) {
             UIView.animateWithDuration(0.5) { () -> Void in
                 let mainTabBarController = self.tabBarController as! MainTabBarController
-                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(-200, 0)
+                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(-160, 0)
             }
         } else {
             UIView.animateWithDuration(0.5) { () -> Void in
