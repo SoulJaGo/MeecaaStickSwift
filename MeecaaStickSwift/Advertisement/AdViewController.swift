@@ -41,8 +41,7 @@ class AdViewController: UIViewController {
     
     /*跳转控制器*/
     func JumpToMain() {
-        print("Ok")
-//        UIApplication.sharedApplication().keyWindow?.rootViewController = 
+       UIApplication.sharedApplication().keyWindow?.rootViewController =  MainViewController()
     }
     
     override func prefersStatusBarHidden() -> Bool {

@@ -2,39 +2,27 @@
 //  MainViewController.swift
 //  MeecaaStickSwift
 //
-//  Created by SoulJa on 16/1/19.
+//  Created by SoulJa on 16/1/20.
 //  Copyright © 2016年 SoulJa. All rights reserved.
-//
+//  主视图
 
 import UIKit
 
-class MainViewController: UITabBarController {
-    let leftMenuView:UITableView = UITableView()
-    
+class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.setupMenuView()
-    }
-    
-    func setupMenuView() {
+        /*主页面*/
+        let mainController = MainTabBarController()
+        self.addChildViewController(mainController)
+        self.view.addSubview(mainController.view)
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        /*左侧菜单*/
+        let leftMenuVc = LeftMenuViewController()
+        self.addChildViewController(leftMenuVc)
+        self.view.insertSubview(leftMenuVc.view, belowSubview: mainController.view)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
-    */
-
 }

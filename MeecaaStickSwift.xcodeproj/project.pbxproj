@@ -30,7 +30,12 @@
 		967D8A601C4E11F2004207E2 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 967D8A4F1C4E11F2004207E2 /* UIImageView+WebCache.m */; };
 		967D8A611C4E11F2004207E2 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 967D8A511C4E11F2004207E2 /* UIView+WebCacheOperation.m */; };
 		967D8A641C4E14FA004207E2 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967D8A631C4E14FA004207E2 /* HttpTool.swift */; };
-		967D8A741C4E3647004207E2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967D8A731C4E3647004207E2 /* MainViewController.swift */; };
+		969B79801C4F5CB000DFC03E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B797F1C4F5CB000DFC03E /* MainViewController.swift */; };
+		969B79861C4F60DF00DFC03E /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B79851C4F60DF00DFC03E /* LeftMenuViewController.swift */; };
+		969B79881C4F69AA00DFC03E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B79871C4F69AA00DFC03E /* MainTabBarController.swift */; };
+		969B798B1C4F6A5600DFC03E /* BasicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798A1C4F6A5600DFC03E /* BasicNavigationController.swift */; };
+		969B798D1C4F6EEE00DFC03E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */; };
+		969B798F1C4F732A00DFC03E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798E1C4F732A00DFC03E /* Header.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +83,12 @@
 		967D8A501C4E11F2004207E2 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		967D8A511C4E11F2004207E2 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		967D8A631C4E14FA004207E2 /* HttpTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
-		967D8A731C4E3647004207E2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		969B797F1C4F5CB000DFC03E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		969B79851C4F60DF00DFC03E /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		969B79871C4F69AA00DFC03E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		969B798A1C4F6A5600DFC03E /* BasicNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicNavigationController.swift; sourceTree = "<group>"; };
+		969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		969B798E1C4F732A00DFC03E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		D0B8E06A66CD0464835BBE74 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9613036B1C4E773300CB9666 /* Home(主页面) */ = {
+			isa = PBXGroup;
+			children = (
+				969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */,
+			);
+			name = "Home(主页面)";
+			path = Home;
+			sourceTree = "<group>";
+		};
 		967D8A0D1C4E0BA5004207E2 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +134,8 @@
 		967D8A181C4E0BA5004207E2 /* MeecaaStickSwift */ = {
 			isa = PBXGroup;
 			children = (
+				969B79891C4F6A0B00DFC03E /* BasicViewController(基础视图类) */,
+				9613036B1C4E773300CB9666 /* Home(主页面) */,
 				967D8A721C4E360F004207E2 /* Main(主视图) */,
 				967D8A621C4E14D2004207E2 /* HttpTool(网络请求工具类) */,
 				967D8A2F1C4E11C9004207E2 /* ThirdLib(第三方库) */,
@@ -125,6 +146,7 @@
 				967D8A221C4E0BA5004207E2 /* LaunchScreen.storyboard */,
 				967D8A251C4E0BA5004207E2 /* Info.plist */,
 				967D8A2B1C4E0DB6004207E2 /* Header.h */,
+				969B798E1C4F732A00DFC03E /* Header.swift */,
 			);
 			path = MeecaaStickSwift;
 			sourceTree = "<group>";
@@ -199,10 +221,21 @@
 		967D8A721C4E360F004207E2 /* Main(主视图) */ = {
 			isa = PBXGroup;
 			children = (
-				967D8A731C4E3647004207E2 /* MainViewController.swift */,
+				969B797F1C4F5CB000DFC03E /* MainViewController.swift */,
+				969B79851C4F60DF00DFC03E /* LeftMenuViewController.swift */,
+				969B79871C4F69AA00DFC03E /* MainTabBarController.swift */,
 			);
 			name = "Main(主视图)";
 			path = Main;
+			sourceTree = "<group>";
+		};
+		969B79891C4F6A0B00DFC03E /* BasicViewController(基础视图类) */ = {
+			isa = PBXGroup;
+			children = (
+				969B798A1C4F6A5600DFC03E /* BasicNavigationController.swift */,
+			);
+			name = "BasicViewController(基础视图类)";
+			path = BasicViewController;
 			sourceTree = "<group>";
 		};
 		C258010A4B6BD34E0EA04885 /* Pods */ = {
@@ -345,17 +378,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969B798B1C4F6A5600DFC03E /* BasicNavigationController.swift in Sources */,
 				967D8A5C1C4E11F2004207E2 /* UIImage+GIF.m in Sources */,
 				967D8A571C4E11F2004207E2 /* SDWebImageDownloader.m in Sources */,
+				969B79881C4F69AA00DFC03E /* MainTabBarController.swift in Sources */,
 				967D8A5F1C4E11F2004207E2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				967D8A5B1C4E11F2004207E2 /* UIButton+WebCache.m in Sources */,
 				967D8A601C4E11F2004207E2 /* UIImageView+WebCache.m in Sources */,
+				969B79861C4F60DF00DFC03E /* LeftMenuViewController.swift in Sources */,
 				967D8A561C4E11F2004207E2 /* SDWebImageDecoder.m in Sources */,
 				967D8A2E1C4E0EE6004207E2 /* AdViewController.swift in Sources */,
 				967D8A551C4E11F2004207E2 /* SDWebImageCompat.m in Sources */,
+				969B798D1C4F6EEE00DFC03E /* HomeViewController.swift in Sources */,
 				967D8A1A1C4E0BA5004207E2 /* AppDelegate.swift in Sources */,
 				967D8A5E1C4E11F2004207E2 /* UIImage+WebP.m in Sources */,
 				967D8A531C4E11F2004207E2 /* NSData+ImageContentType.m in Sources */,
+				969B798F1C4F732A00DFC03E /* Header.swift in Sources */,
 				967D8A581C4E11F2004207E2 /* SDWebImageDownloaderOperation.m in Sources */,
 				967D8A641C4E14FA004207E2 /* HttpTool.swift in Sources */,
 				967D8A591C4E11F2004207E2 /* SDWebImageManager.m in Sources */,
@@ -364,7 +402,7 @@
 				967D8A521C4E11F2004207E2 /* MKAnnotationView+WebCache.m in Sources */,
 				967D8A611C4E11F2004207E2 /* UIView+WebCacheOperation.m in Sources */,
 				967D8A541C4E11F2004207E2 /* SDImageCache.m in Sources */,
-				967D8A741C4E3647004207E2 /* MainViewController.swift in Sources */,
+				969B79801C4F5CB000DFC03E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
