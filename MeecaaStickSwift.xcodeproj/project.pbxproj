@@ -36,6 +36,7 @@
 		969B798B1C4F6A5600DFC03E /* BasicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798A1C4F6A5600DFC03E /* BasicNavigationController.swift */; };
 		969B798D1C4F6EEE00DFC03E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */; };
 		969B798F1C4F732A00DFC03E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798E1C4F732A00DFC03E /* Header.swift */; };
+		969B79911C4F8ED200DFC03E /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		969B798A1C4F6A5600DFC03E /* BasicNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicNavigationController.swift; sourceTree = "<group>"; };
 		969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		969B798E1C4F732A00DFC03E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		D0B8E06A66CD0464835BBE74 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +226,7 @@
 				969B797F1C4F5CB000DFC03E /* MainViewController.swift */,
 				969B79851C4F60DF00DFC03E /* LeftMenuViewController.swift */,
 				969B79871C4F69AA00DFC03E /* MainTabBarController.swift */,
+				969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */,
 			);
 			name = "Main(主视图)";
 			path = Main;
@@ -392,6 +395,7 @@
 				969B798D1C4F6EEE00DFC03E /* HomeViewController.swift in Sources */,
 				967D8A1A1C4E0BA5004207E2 /* AppDelegate.swift in Sources */,
 				967D8A5E1C4E11F2004207E2 /* UIImage+WebP.m in Sources */,
+				969B79911C4F8ED200DFC03E /* RightMenuViewController.swift in Sources */,
 				967D8A531C4E11F2004207E2 /* NSData+ImageContentType.m in Sources */,
 				969B798F1C4F732A00DFC03E /* Header.swift in Sources */,
 				967D8A581C4E11F2004207E2 /* SDWebImageDownloaderOperation.m in Sources */,

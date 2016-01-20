@@ -20,6 +20,12 @@ class MainViewController: UIViewController {
         let leftMenuVc = LeftMenuViewController()
         self.addChildViewController(leftMenuVc)
         self.view.insertSubview(leftMenuVc.view, belowSubview: mainController.view)
+        
+        /*右侧菜单*/
+        let rightMenuVc = RightMenuViewController()
+        self.addChildViewController(rightMenuVc)
+        rightMenuVc.view.frame = CGRectMake(kScreen_Width - 200, 0, 200, kScreen_Height)
+        self.view.insertSubview(rightMenuVc.view, belowSubview: mainController.view)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

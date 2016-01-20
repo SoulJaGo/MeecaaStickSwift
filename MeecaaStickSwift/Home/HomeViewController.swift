@@ -15,13 +15,13 @@ class HomeViewController: UIViewController {
         /*设置Nav*/
         self.setupNav()
         
-        let rightSwipeLeftMenu = UISwipeGestureRecognizer(target: self, action: Selector("showLeftMenu:"))
-        rightSwipeLeftMenu.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(rightSwipeLeftMenu)
+        let rightSwipeMenu = UISwipeGestureRecognizer(target: self, action: Selector("handleRightSwipe:"))
+        rightSwipeMenu.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(rightSwipeMenu)
         
-        let leftSwipeLeftMenu = UISwipeGestureRecognizer(target: self, action: Selector("hideLeftMenu:"))
-        leftSwipeLeftMenu.direction = UISwipeGestureRecognizerDirection.Left
-        self.view.addGestureRecognizer(leftSwipeLeftMenu)
+        let leftSwipeMenu = UISwipeGestureRecognizer(target: self, action: Selector("handleLeftSwipe:"))
+        leftSwipeMenu.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(leftSwipeMenu)
     }
     
     func setupNav() {
@@ -43,10 +43,13 @@ class HomeViewController: UIViewController {
         }
     }
     
-    /*展示左侧菜单*/
-    func showLeftMenu(recognizer: UISwipeGestureRecognizer) {
+    /*处理右滑手势*/
+    func handleRightSwipe(recognizer: UISwipeGestureRecognizer) {
         if (recognizer.locationInView(self.view).x > (kScreen_Width / 2)) {
-            return;
+            UIView.animateWithDuration(0.5) { () -> Void in
+                let mainTabBarController = self.tabBarController as! MainTabBarController
+                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
+            }
         } else {
             UIView.animateWithDuration(0.5) { () -> Void in
                 let mainTabBarController = self.tabBarController as! MainTabBarController
@@ -56,25 +59,16 @@ class HomeViewController: UIViewController {
     }
     
     /*隐藏左侧菜单*/
-    func hideLeftMenu(recognizer: UISwipeGestureRecognizer) {
+    func handleLeftSwipe(recognizer: UISwipeGestureRecognizer) {
         if (recognizer.locationInView(self.view).x > (kScreen_Width / 2)) {
-            return;
+            UIView.animateWithDuration(0.5) { () -> Void in
+                let mainTabBarController = self.tabBarController as! MainTabBarController
+                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(-200, 0)
+            }
         } else {
             UIView.animateWithDuration(0.5) { () -> Void in
                 let mainTabBarController = self.tabBarController as! MainTabBarController
                 mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
-            }
-        }
-    }
-    
-    func showRightMenu() {
-        UIView.animateWithDuration(0.5) { () -> Void in
-            let mainTabBarController = self.tabBarController as! MainTabBarController
-            
-            if (mainTabBarController.view.frame.origin.x == -200) {
-                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
-            } else {
-                mainTabBarController.view.transform = CGAffineTransformMakeTranslation(-200, 0)
             }
         }
     }
