@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8E238578CD468A9191D2EA05 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C88C03B4744BC97BCF00F4B /* Pods.framework */; };
+		965028B51C50A62C0031062B /* jquery-1.8.3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 965028B21C50A62C0031062B /* jquery-1.8.3.min.js */; };
+		965028B61C50A62C0031062B /* jquery.mobile-1.3.2.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 965028B31C50A62C0031062B /* jquery.mobile-1.3.2.min.css */; };
+		965028B71C50A62C0031062B /* jquery.mobile-1.3.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 965028B41C50A62C0031062B /* jquery.mobile-1.3.2.min.js */; };
+		965028B91C50A64E0031062B /* knowledge.html in Resources */ = {isa = PBXBuildFile; fileRef = 965028B81C50A64E0031062B /* knowledge.html */; };
+		965028BB1C50A66F0031062B /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965028BA1C50A66F0031062B /* KnowledgeViewController.swift */; };
+		965028BF1C50B1690031062B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 965028BE1C50B1690031062B /* MBProgressHUD.m */; };
 		967D8A1A1C4E0BA5004207E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967D8A191C4E0BA5004207E2 /* AppDelegate.swift */; };
 		967D8A1F1C4E0BA5004207E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967D8A1D1C4E0BA5004207E2 /* Main.storyboard */; };
 		967D8A211C4E0BA5004207E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 967D8A201C4E0BA5004207E2 /* Assets.xcassets */; };
@@ -43,6 +49,13 @@
 /* Begin PBXFileReference section */
 		2C88C03B4744BC97BCF00F4B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5EE95F8051D592F0662E54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		965028B21C50A62C0031062B /* jquery-1.8.3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.8.3.min.js"; sourceTree = "<group>"; };
+		965028B31C50A62C0031062B /* jquery.mobile-1.3.2.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "jquery.mobile-1.3.2.min.css"; sourceTree = "<group>"; };
+		965028B41C50A62C0031062B /* jquery.mobile-1.3.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery.mobile-1.3.2.min.js"; sourceTree = "<group>"; };
+		965028B81C50A64E0031062B /* knowledge.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = knowledge.html; sourceTree = "<group>"; };
+		965028BA1C50A66F0031062B /* KnowledgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
+		965028BD1C50B1690031062B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		965028BE1C50B1690031062B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		967D8A161C4E0BA5004207E2 /* MeecaaStickSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeecaaStickSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		967D8A191C4E0BA5004207E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		967D8A1E1C4E0BA5004207E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +130,28 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		965028B11C50A5FA0031062B /* Knowledge(体温小常识) */ = {
+			isa = PBXGroup;
+			children = (
+				965028B81C50A64E0031062B /* knowledge.html */,
+				965028B21C50A62C0031062B /* jquery-1.8.3.min.js */,
+				965028B31C50A62C0031062B /* jquery.mobile-1.3.2.min.css */,
+				965028B41C50A62C0031062B /* jquery.mobile-1.3.2.min.js */,
+				965028BA1C50A66F0031062B /* KnowledgeViewController.swift */,
+			);
+			name = "Knowledge(体温小常识)";
+			path = knowledge;
+			sourceTree = "<group>";
+		};
+		965028BC1C50B12D0031062B /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				965028BD1C50B1690031062B /* MBProgressHUD.h */,
+				965028BE1C50B1690031062B /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		967D8A0D1C4E0BA5004207E2 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +173,7 @@
 		967D8A181C4E0BA5004207E2 /* MeecaaStickSwift */ = {
 			isa = PBXGroup;
 			children = (
+				965028B11C50A5FA0031062B /* Knowledge(体温小常识) */,
 				96AE65751C4FAF99001E0E7E /* AboutUs(关于我们) */,
 				969B79891C4F6A0B00DFC03E /* BasicViewController(基础视图类) */,
 				9613036B1C4E773300CB9666 /* Home(主页面) */,
@@ -168,6 +204,7 @@
 		967D8A2F1C4E11C9004207E2 /* ThirdLib(第三方库) */ = {
 			isa = PBXGroup;
 			children = (
+				965028BC1C50B12D0031062B /* MBProgressHUD */,
 				967D8A301C4E11F2004207E2 /* SDWebImage */,
 			);
 			name = "ThirdLib(第三方库)";
@@ -333,7 +370,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				967D8A241C4E0BA5004207E2 /* LaunchScreen.storyboard in Resources */,
+				965028B91C50A64E0031062B /* knowledge.html in Resources */,
+				965028B51C50A62C0031062B /* jquery-1.8.3.min.js in Resources */,
 				967D8A211C4E0BA5004207E2 /* Assets.xcassets in Resources */,
+				965028B61C50A62C0031062B /* jquery.mobile-1.3.2.min.css in Resources */,
+				965028B71C50A62C0031062B /* jquery.mobile-1.3.2.min.js in Resources */,
 				967D8A1F1C4E0BA5004207E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +442,7 @@
 				967D8A5F1C4E11F2004207E2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				967D8A5B1C4E11F2004207E2 /* UIButton+WebCache.m in Sources */,
 				967D8A601C4E11F2004207E2 /* UIImageView+WebCache.m in Sources */,
+				965028BF1C50B1690031062B /* MBProgressHUD.m in Sources */,
 				969B79861C4F60DF00DFC03E /* LeftMenuViewController.swift in Sources */,
 				967D8A561C4E11F2004207E2 /* SDWebImageDecoder.m in Sources */,
 				967D8A2E1C4E0EE6004207E2 /* AdViewController.swift in Sources */,
@@ -408,6 +450,7 @@
 				969B798D1C4F6EEE00DFC03E /* HomeViewController.swift in Sources */,
 				967D8A1A1C4E0BA5004207E2 /* AppDelegate.swift in Sources */,
 				967D8A5E1C4E11F2004207E2 /* UIImage+WebP.m in Sources */,
+				965028BB1C50A66F0031062B /* KnowledgeViewController.swift in Sources */,
 				969B79911C4F8ED200DFC03E /* RightMenuViewController.swift in Sources */,
 				967D8A531C4E11F2004207E2 /* NSData+ImageContentType.m in Sources */,
 				969B798F1C4F732A00DFC03E /* Header.swift in Sources */,

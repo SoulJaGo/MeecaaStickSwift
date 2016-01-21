@@ -45,6 +45,15 @@ class MainViewController: UIViewController,LeftMenuViewDelegate {
             let aboutUsVc = AboutUsViewController()
             aboutUsVc.hidesBottomBarWhenPushed = true
             homeNav.pushViewController(aboutUsVc, animated: true)
+        } else if (indexPath.row == 1) {
+            let knowledgeVc = KnowledgeViewController()
+            knowledgeVc.hidesBottomBarWhenPushed = true
+            homeNav.pushViewController(knowledgeVc, animated: true)
+        } else if (indexPath.row == 2) {
+            let url = NSURL(string: "prefs:root=prefs:root=NOTIFICATIONS_ID")
+            if (UIApplication.sharedApplication().canOpenURL(url!) == true) {
+                UIApplication.sharedApplication().openURL(url!)
+            }
         }
     }
 }

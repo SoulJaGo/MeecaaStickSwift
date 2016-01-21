@@ -13,6 +13,8 @@
  */
 #import "UIImageView+WebCache.h"
 
+#import "MBProgressHUD.h"
+
 /**
  *  测试服务器地址
  */
