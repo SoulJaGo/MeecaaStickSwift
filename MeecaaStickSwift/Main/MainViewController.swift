@@ -37,7 +37,14 @@ class MainViewController: UIViewController,LeftMenuViewDelegate {
     }
     
     func onClickCell(tableView: UITableView, indexPath: NSIndexPath) {
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
+        }
         let homeNav = self.mainTabBarController.viewControllers![0] as! BasicNavigationController
-        homeNav.pushViewController(AboutUsViewController(), animated: true)
+        if(indexPath.row == 0) {
+            let aboutUsVc = AboutUsViewController()
+            aboutUsVc.hidesBottomBarWhenPushed = true
+            homeNav.pushViewController(aboutUsVc, animated: true)
+        }
     }
 }

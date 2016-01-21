@@ -13,5 +13,6 @@ class BasicNavigationController: UINavigationController {
         super.viewDidLoad()
         self.navigationBar.setBackgroundImage(UIImage(named: "navigationbarColor"), forBarMetrics: .Default)
         self.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
     }
 }
