@@ -8,9 +8,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var iconView = UIImageView()
     var titleLabel = UILabel()
+    var deviceTable = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,15 @@ class HomeViewController: UIViewController {
         let leftSwipeMenu = UISwipeGestureRecognizer(target: self, action: Selector("handleLeftSwipe:"))
         leftSwipeMenu.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(leftSwipeMenu)
+        
+        let deviceTableW = CGFloat(200)
+        let deviceTableH = CGFloat(88)
+        let deviceTableX = (CGFloat(kScreen_Width) - CGFloat(deviceTableW)) / 2
+        let deviceTableY = CGFloat(-88)
+        self.deviceTable = UITableView(frame: CGRectMake(deviceTableX, deviceTableY, deviceTableW, deviceTableH), style: .Plain)
+        self.view.addSubview(self.deviceTable)
+        self.deviceTable.dataSource = self
+        self.deviceTable.delegate = self
     }
     
     /*设置TabBar*/
@@ -62,7 +72,13 @@ class HomeViewController: UIViewController {
     
     func tapTopView() {
         UIView.animateWithDuration(0.5) { () -> Void in
-            self.iconView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+            if (self.deviceTable.frame.origin.y == -88) {
+                self.iconView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                self.deviceTable.transform = CGAffineTransformMakeTranslation(0, 88)
+            } else {
+                self.iconView.transform = CGAffineTransformMakeRotation(0)
+                self.deviceTable.transform = CGAffineTransformMakeTranslation(0, 0)
+            }
         }
     }
     
@@ -120,5 +136,29 @@ class HomeViewController: UIViewController {
                 mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
             }
         }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let ID = "deviceCell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(ID)
+        if (cell == nil) {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: ID)
+        }
+        let deviceArray = ["米开体温棒","米开温豆"]
+        cell?.textLabel!.text = deviceArray[indexPath.row]
+        cell?.imageView!.image = UIImage(named: "check_go_icon")
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
