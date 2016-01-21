@@ -9,11 +9,17 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    var iconView = UIImageView()
+    var titleLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blueColor()
         /*设置Nav*/
         self.setupNav()
+        
+        /*设置TabBar*/
+        self.setupTabBar()
         
         let rightSwipeMenu = UISwipeGestureRecognizer(target: self, action: Selector("handleRightSwipe:"))
         rightSwipeMenu.direction = UISwipeGestureRecognizerDirection.Right
@@ -24,10 +30,40 @@ class HomeViewController: UIViewController {
         self.view.addGestureRecognizer(leftSwipeMenu)
     }
     
+    /*设置TabBar*/
+    func setupTabBar() {
+        self.navigationController?.tabBarItem = UITabBarItem(title: "首页", image: UIImage(named: "shouye")?.imageWithRenderingMode(.AlwaysOriginal), selectedImage: UIImage(named:"shouyexuanzhong")?.imageWithRenderingMode(.AlwaysOriginal))
+    }
+    
+    /*设置Nav*/
     func setupNav() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "左菜单", style: UIBarButtonItemStyle.Done, target: self, action: Selector("switchLeftMenu"))
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "右菜单", style: UIBarButtonItemStyle.Done, target: self, action: Selector("switchRightMenu"))
+        
+        let topView = UIView(frame: CGRectMake(0,0,113,44))
+        let deviceLabel = UILabel(frame: CGRectMake(0,0,100,44))
+        deviceLabel.text = "请选择设备"
+        deviceLabel.textAlignment = .Right
+        deviceLabel.textColor = UIColor.whiteColor()
+        topView.addSubview(deviceLabel)
+        self.titleLabel = deviceLabel
+        
+        let iconImageView = UIImageView(frame: CGRectMake(102,16,11,11))
+        iconImageView.image = UIImage(named: "jiantou")
+        topView.addSubview(iconImageView)
+        self.iconView = iconImageView
+        
+        self.navigationItem.titleView = topView
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: Selector("tapTopView"))
+        topView.addGestureRecognizer(recognizer)
+    }
+    
+    func tapTopView() {
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.iconView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        }
     }
     
     /*切换左侧菜单*/

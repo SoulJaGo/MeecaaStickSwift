@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController,LeftMenuViewDelegate {
+class MainViewController: UIViewController,LeftMenuViewDelegate,RightMenuDelegate {
     var mainTabBarController = MainTabBarController()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,7 @@ class MainViewController: UIViewController,LeftMenuViewDelegate {
         self.addChildViewController(rightMenuVc)
         rightMenuVc.view.frame = CGRectMake(kScreen_Width - 160, 0, 160, kScreen_Height)
         self.view.insertSubview(rightMenuVc.view, belowSubview: mainController.view)
+        rightMenuVc.delegate = self
         
     }
     
@@ -54,6 +55,18 @@ class MainViewController: UIViewController,LeftMenuViewDelegate {
             if (UIApplication.sharedApplication().canOpenURL(url!) == true) {
                 UIApplication.sharedApplication().openURL(url!)
             }
+        }
+    }
+    
+    func onClickRightCell(tableView: UITableView, indexPath: NSIndexPath) {
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
+        }
+        let homeNav = self.mainTabBarController.viewControllers![0] as! BasicNavigationController
+        if (indexPath.row == 2) {
+            let ProblemVc = ProblemViewController()
+            ProblemVc.hidesBottomBarWhenPushed = true
+            homeNav.pushViewController(ProblemVc, animated: true)
         }
     }
 }

@@ -7,8 +7,12 @@
 //
 
 import UIKit
+protocol RightMenuDelegate:NSObjectProtocol {
+    func onClickRightCell(tableView:UITableView, indexPath:NSIndexPath)
+}
 
 class RightMenuViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    internal var delegate:RightMenuDelegate?
     var tableView = UITableView() //菜单tableView
     
     override func viewDidLoad() {
@@ -65,6 +69,9 @@ class RightMenuViewController: UIViewController,UITableViewDataSource,UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if ((self.delegate?.respondsToSelector(Selector("onClickRightCell:"))) != nil) {
+            self.delegate?.onClickRightCell(tableView, indexPath: indexPath)
+        }
     }
 
 }
