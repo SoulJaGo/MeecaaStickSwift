@@ -44,6 +44,7 @@
 		969B798D1C4F6EEE00DFC03E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */; };
 		969B798F1C4F732A00DFC03E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B798E1C4F732A00DFC03E /* Header.swift */; };
 		969B79911C4F8ED200DFC03E /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */; };
+		96A51D571C5771CD0074EC5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A51D561C5771CD0074EC5D /* LoginViewController.swift */; };
 		96AE65771C4FAFC2001E0E7E /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE65761C4FAFC2001E0E7E /* AboutUsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		969B798C1C4F6EEE00DFC03E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		969B798E1C4F732A00DFC03E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
+		96A51D561C5771CD0074EC5D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96AE65761C4FAFC2001E0E7E /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		D0B8E06A66CD0464835BBE74 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +186,7 @@
 		967D8A181C4E0BA5004207E2 /* MeecaaStickSwift */ = {
 			isa = PBXGroup;
 			children = (
+				96A51D521C5771820074EC5D /* Login(登陆) */,
 				965028C01C50D3650031062B /* Problem(问题反馈) */,
 				965028B11C50A5FA0031062B /* Knowledge(体温小常识) */,
 				96AE65751C4FAF99001E0E7E /* AboutUs(关于我们) */,
@@ -291,6 +294,15 @@
 			);
 			name = "BasicViewController(基础视图类)";
 			path = BasicViewController;
+			sourceTree = "<group>";
+		};
+		96A51D521C5771820074EC5D /* Login(登陆) */ = {
+			isa = PBXGroup;
+			children = (
+				96A51D561C5771CD0074EC5D /* LoginViewController.swift */,
+			);
+			name = "Login(登陆)";
+			path = Login;
 			sourceTree = "<group>";
 		};
 		96AE65751C4FAF99001E0E7E /* AboutUs(关于我们) */ = {
@@ -459,6 +471,7 @@
 				969B79861C4F60DF00DFC03E /* LeftMenuViewController.swift in Sources */,
 				967D8A561C4E11F2004207E2 /* SDWebImageDecoder.m in Sources */,
 				967D8A2E1C4E0EE6004207E2 /* AdViewController.swift in Sources */,
+				96A51D571C5771CD0074EC5D /* LoginViewController.swift in Sources */,
 				967D8A551C4E11F2004207E2 /* SDWebImageCompat.m in Sources */,
 				969B798D1C4F6EEE00DFC03E /* HomeViewController.swift in Sources */,
 				967D8A1A1C4E0BA5004207E2 /* AppDelegate.swift in Sources */,

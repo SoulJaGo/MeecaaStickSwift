@@ -63,7 +63,12 @@ class MainViewController: UIViewController,LeftMenuViewDelegate,RightMenuDelegat
             self.mainTabBarController.view.transform = CGAffineTransformMakeTranslation(0, 0)
         }
         let homeNav = self.mainTabBarController.viewControllers![0] as! BasicNavigationController
-        if (indexPath.row == 2) {
+        
+        if (indexPath.row == 0) {
+            let loginVc = LoginViewController()
+            loginVc.hidesBottomBarWhenPushed = true
+            homeNav.pushViewController(loginVc, animated: true)
+        } else if (indexPath.row == 2) {
             let ProblemVc = ProblemViewController()
             ProblemVc.hidesBottomBarWhenPushed = true
             homeNav.pushViewController(ProblemVc, animated: true)
