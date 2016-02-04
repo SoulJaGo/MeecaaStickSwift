@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
+    var phoneTextField = UITextField()
+    var passwordTextField = UITextField()
     override func viewDidLoad() {
         super.viewDidLoad()
         /*设置Nav*/
@@ -58,7 +61,7 @@ class LoginViewController: UIViewController {
             make.top.equalTo(0)
         }
         
-        let phoneTextField = UITextField()
+        phoneTextField = UITextField()
         phoneTextField.borderStyle = UITextBorderStyle.RoundedRect
         phoneTextField.placeholder = "手机号"
         phoneTextField.keyboardType = UIKeyboardType.NumberPad
@@ -91,9 +94,10 @@ class LoginViewController: UIViewController {
             make.top.equalTo(0)
         }
         
-        let passwordTextField = UITextField()
+        passwordTextField = UITextField()
         passwordTextField.borderStyle = UITextBorderStyle.RoundedRect
         passwordTextField.placeholder = "密码"
+        passwordTextField.secureTextEntry = true
         passwordView.addSubview(passwordTextField)
         passwordTextField.snp_makeConstraints { (make) -> Void in
             make.leftMargin.equalTo(passwordLogoImageView.snp_right).offset(10)
@@ -101,9 +105,83 @@ class LoginViewController: UIViewController {
             make.height.equalTo(40)
             make.top.equalTo(0)
         }
+        
+        let walkAroundBtn = UIButton(type: .Custom)
+        walkAroundBtn.setTitle("随便逛逛", forState: .Normal)
+        walkAroundBtn.setTitleColor(TEXT_COLOR, forState: .Normal)
+        self.view.addSubview(walkAroundBtn)
+        walkAroundBtn.titleLabel?.font = UIFont.systemFontOfSize(15)
+        walkAroundBtn.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(100)
+            make.height.equalTo(30)
+            make.centerX.equalTo(self.view)
+            make.topMargin.equalTo(passwordView.snp_bottom).offset(10)
+        }
+        walkAroundBtn.addTarget(self, action: Selector("onClickWalkAroundBtn"), forControlEvents: .TouchUpInside)
+        
+        let forgetPwdBtn = UIButton(type: .Custom)
+        forgetPwdBtn.setTitle("忘记密码", forState: .Normal)
+        forgetPwdBtn.setTitleColor(TEXT_COLOR, forState: .Normal)
+        forgetPwdBtn.titleLabel?.font = UIFont.systemFontOfSize(15)
+        self.view.addSubview(forgetPwdBtn)
+        forgetPwdBtn.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(100)
+            make.height.equalTo(30)
+            make.rightMargin.equalTo(self.view).offset(-20)
+            make.topMargin.equalTo(passwordView.snp_bottom).offset(10)
+        }
+        
+        let loginBtn = UIButton(type: .Custom)
+        loginBtn.setTitle("登陆", forState: .Normal)
+        loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        loginBtn.setBackgroundImage(UIImage(named: "navigationbarColor"), forState: .Normal)
+        loginBtn.addTarget(self, action: Selector("onClickLoginBtn"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(loginBtn)
+        loginBtn.snp_makeConstraints { (make) -> Void in
+            make.leftMargin.equalTo(self.view).offset(30)
+            make.rightMargin.equalTo(self.view).offset(-30)
+            make.height.equalTo(40)
+            make.topMargin.equalTo(walkAroundBtn.snp_bottom).offset(10)
+        }
     }
     
     func goBack() {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func onClickWalkAroundBtn() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func onClickLoginBtn() {
+        self.view.endEditing(true)
+        if (phoneTextField.text == "") { //手机号码输入为空
+            GlobalTool.shared().showHud("请输入手机号码!", mode: MBProgressHUDMode.Text)
+        } else if (passwordTextField.text == "") {
+            GlobalTool.shared().showHud("请输入密码!", mode: MBProgressHUDMode.Text)
+        } else if (phoneTextField.text?.characters.count < 11) {
+            GlobalTool.shared().showHud("请输入正确的手机号码!", mode: MBProgressHUDMode.Text)
+        } else {
+            HttpTool.shared().loginWithPhoneNumberAndPassword(self.phoneTextField.text!, password: self.passwordTextField.text!, completionHandler: { (responseData) -> Void in
+                if (responseData.result.isFailure) {
+                    GlobalTool.shared().showHud("网络不给力哦!", mode: MBProgressHUDMode.Text)
+                } else {
+                    let json = JSON(responseData.result.value!)
+                    let status = json["status"].intValue
+                    if (status == 0) { //登陆不成功
+                        let msg = json["msg"].stringValue as String
+                        GlobalTool.shared().showHud(msg, mode: .Text)
+                    } else { //登陆成功
+                        var accountDict:Dictionary<String,AnyObject> = [:]
+                        accountDict["phone"] = self.phoneTextField.text!
+                        accountDict["password"] = self.passwordTextField.text!
+                        let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last
+                        let archivePath = docPath?.stringByAppendingString("/account.archive")
+                        NSKeyedArchiver.archiveRootObject(accountDict, toFile: archivePath!)
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }
+                }
+            })
+        }
     }
 }

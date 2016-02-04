@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E238578CD468A9191D2EA05 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C88C03B4744BC97BCF00F4B /* Pods.framework */; };
+		962ABB301C609CC900160554 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962ABB2F1C609CC900160554 /* Account.swift */; };
 		965028B51C50A62C0031062B /* jquery-1.8.3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 965028B21C50A62C0031062B /* jquery-1.8.3.min.js */; };
 		965028B61C50A62C0031062B /* jquery.mobile-1.3.2.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 965028B31C50A62C0031062B /* jquery.mobile-1.3.2.min.css */; };
 		965028B71C50A62C0031062B /* jquery.mobile-1.3.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 965028B41C50A62C0031062B /* jquery.mobile-1.3.2.min.js */; };
@@ -46,11 +47,13 @@
 		969B79911C4F8ED200DFC03E /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */; };
 		96A51D571C5771CD0074EC5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A51D561C5771CD0074EC5D /* LoginViewController.swift */; };
 		96AE65771C4FAFC2001E0E7E /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE65761C4FAFC2001E0E7E /* AboutUsViewController.swift */; };
+		96D1B21A1C5F2CEE00CA693B /* GlobalTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D1B2191C5F2CEE00CA693B /* GlobalTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C88C03B4744BC97BCF00F4B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5EE95F8051D592F0662E54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		962ABB2F1C609CC900160554 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		965028B21C50A62C0031062B /* jquery-1.8.3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.8.3.min.js"; sourceTree = "<group>"; };
 		965028B31C50A62C0031062B /* jquery.mobile-1.3.2.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "jquery.mobile-1.3.2.min.css"; sourceTree = "<group>"; };
 		965028B41C50A62C0031062B /* jquery.mobile-1.3.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery.mobile-1.3.2.min.js"; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		969B79901C4F8ED200DFC03E /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		96A51D561C5771CD0074EC5D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96AE65761C4FAFC2001E0E7E /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		96D1B2191C5F2CEE00CA693B /* GlobalTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalTool.swift; sourceTree = "<group>"; };
 		D0B8E06A66CD0464835BBE74 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,15 @@
 			);
 			name = "Home(主页面)";
 			path = Home;
+			sourceTree = "<group>";
+		};
+		962ABB2E1C609B6000160554 /* Account(账号) */ = {
+			isa = PBXGroup;
+			children = (
+				962ABB2F1C609CC900160554 /* Account.swift */,
+			);
+			name = "Account(账号)";
+			path = Account;
 			sourceTree = "<group>";
 		};
 		965028B11C50A5FA0031062B /* Knowledge(体温小常识) */ = {
@@ -186,6 +199,8 @@
 		967D8A181C4E0BA5004207E2 /* MeecaaStickSwift */ = {
 			isa = PBXGroup;
 			children = (
+				962ABB2E1C609B6000160554 /* Account(账号) */,
+				96D1B2181C5F2C5900CA693B /* GlobalTool(全局工具类) */,
 				96A51D521C5771820074EC5D /* Login(登陆) */,
 				965028C01C50D3650031062B /* Problem(问题反馈) */,
 				965028B11C50A5FA0031062B /* Knowledge(体温小常识) */,
@@ -312,6 +327,15 @@
 			);
 			name = "AboutUs(关于我们)";
 			path = AboutUS;
+			sourceTree = "<group>";
+		};
+		96D1B2181C5F2C5900CA693B /* GlobalTool(全局工具类) */ = {
+			isa = PBXGroup;
+			children = (
+				96D1B2191C5F2CEE00CA693B /* GlobalTool.swift */,
+			);
+			name = "GlobalTool(全局工具类)";
+			path = GlobalTool;
 			sourceTree = "<group>";
 		};
 		C258010A4B6BD34E0EA04885 /* Pods */ = {
@@ -481,9 +505,11 @@
 				967D8A531C4E11F2004207E2 /* NSData+ImageContentType.m in Sources */,
 				969B798F1C4F732A00DFC03E /* Header.swift in Sources */,
 				967D8A581C4E11F2004207E2 /* SDWebImageDownloaderOperation.m in Sources */,
+				962ABB301C609CC900160554 /* Account.swift in Sources */,
 				967D8A641C4E14FA004207E2 /* HttpTool.swift in Sources */,
 				967D8A591C4E11F2004207E2 /* SDWebImageManager.m in Sources */,
 				967D8A5D1C4E11F2004207E2 /* UIImage+MultiFormat.m in Sources */,
+				96D1B21A1C5F2CEE00CA693B /* GlobalTool.swift in Sources */,
 				967D8A5A1C4E11F2004207E2 /* SDWebImagePrefetcher.m in Sources */,
 				967D8A521C4E11F2004207E2 /* MKAnnotationView+WebCache.m in Sources */,
 				967D8A611C4E11F2004207E2 /* UIView+WebCacheOperation.m in Sources */,

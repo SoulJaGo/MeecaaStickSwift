@@ -8,9 +8,12 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+
+typealias responseBlock = (AnyObject)->()
 
 class HttpTool: UIViewController {
+    let APPKEY = "!@#$%meecaa.com"
+    
     static let sharedObj:HttpTool = HttpTool() //单例对象
     
     /*单例模式*/
@@ -30,5 +33,25 @@ class HttpTool: UIViewController {
                 NSUserDefaults.standardUserDefaults().synchronize()
             }
         }
+    }
+    
+    /*利用电话和密码登陆*/
+    func loginWithPhoneNumberAndPassword(phoneNumber:String,password:String, completionHandler:Response<AnyObject, NSError>->Void) {
+        var params:Dictionary<String,String> = [:]
+        params["phone"] = phoneNumber
+        params["password"] = password
+        params["devicetype"] = "ios"
+        params["timestamp"] = String(NSDate().timeIntervalSince1970)
+        params["uuid"] = GlobalTool.shared().PhoneUUID
+        params["version"] = VERSION
+        params["devicetoken"] = GlobalTool.shared().DeviceToken
+        params["sign"] = phoneNumber.stringByAppendingString(password).stringByAppendingString(params["timestamp"]!).stringByAppendingString(APPKEY).md5()
+        params["device_brand"] = "apple"
+        params["device_model"] = "iPhone 6S"
+        params["device_system"] = "ios"
+        params["device_version"] = GlobalTool.shared().DeviceSystemVersion
+        
+        let urlStr = HOST.stringByAppendingString("api.php?m=open&c=account&a=login")
+        Alamofire.request(.POST, urlStr, parameters: params).responseJSON(completionHandler: completionHandler)
     }
 }

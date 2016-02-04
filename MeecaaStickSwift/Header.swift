@@ -8,6 +8,9 @@
 
 import Foundation
 import SnapKit
+import CryptoSwift
+import SwiftyJSON
+
 let kScreen_Width = UIScreen.mainScreen().bounds.width
 let kScreen_Height = UIScreen.mainScreen().bounds.height
 let MENU_BACKGROUND_COLOR = UIColor(red: 66/255.0, green: 69/255.0, blue: 74/255.0, alpha: 1.0)
