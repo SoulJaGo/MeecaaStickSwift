@@ -47,7 +47,7 @@ class HttpTool: UIViewController {
         params["devicetoken"] = GlobalTool.shared().DeviceToken
         params["sign"] = phoneNumber.stringByAppendingString(password).stringByAppendingString(params["timestamp"]!).stringByAppendingString(APPKEY).md5()
         params["device_brand"] = "apple"
-        params["device_model"] = "iPhone 6S"
+        params["device_model"] = "iPhone 6S Plus"
         params["device_system"] = "ios"
         params["device_version"] = GlobalTool.shared().DeviceSystemVersion
         

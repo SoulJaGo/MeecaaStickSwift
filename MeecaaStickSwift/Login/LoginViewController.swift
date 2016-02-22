@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     func setupNav() {
         self.navigationItem.title = "登陆"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_icon"), style: .Done, target: self, action: Selector("goBack"))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登陆", style: .Done, target: self, action: Selector("onClickLoginBtn"))
     }
     
     func setupView() {
@@ -130,19 +131,6 @@ class LoginViewController: UIViewController {
             make.rightMargin.equalTo(self.view).offset(-20)
             make.topMargin.equalTo(passwordView.snp_bottom).offset(10)
         }
-        
-        let loginBtn = UIButton(type: .Custom)
-        loginBtn.setTitle("登陆", forState: .Normal)
-        loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        loginBtn.setBackgroundImage(UIImage(named: "navigationbarColor"), forState: .Normal)
-        loginBtn.addTarget(self, action: Selector("onClickLoginBtn"), forControlEvents: .TouchUpInside)
-        self.view.addSubview(loginBtn)
-        loginBtn.snp_makeConstraints { (make) -> Void in
-            make.leftMargin.equalTo(self.view).offset(30)
-            make.rightMargin.equalTo(self.view).offset(-30)
-            make.height.equalTo(40)
-            make.topMargin.equalTo(walkAroundBtn.snp_bottom).offset(10)
-        }
     }
     
     func goBack() {
@@ -178,6 +166,10 @@ class LoginViewController: UIViewController {
                         let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last
                         let archivePath = docPath?.stringByAppendingString("/account.archive")
                         NSKeyedArchiver.archiveRootObject(accountDict, toFile: archivePath!)
+                        let data = json["data"].rawValue
+                        let dataArchivePath = docPath?.stringByAppendingString("/member.archive")
+                        NSKeyedArchiver.archiveRootObject(data, toFile: dataArchivePath!)
+                        GlobalTool.shared().showHud("登陆成功!", mode: .Text)
                         self.navigationController?.popViewControllerAnimated(true)
                     }
                 }

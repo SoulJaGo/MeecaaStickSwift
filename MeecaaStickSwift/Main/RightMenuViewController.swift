@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 protocol RightMenuDelegate:NSObjectProtocol {
     func onClickRightCell(tableView:UITableView, indexPath:NSIndexPath)
 }
@@ -32,6 +33,10 @@ class RightMenuViewController: UIViewController,UITableViewDataSource,UITableVie
         headerImageView.image = UIImage(named: "left_menu_icon")
         headerView.addSubview(headerImageView)
         self.tableView.tableHeaderView = headerView
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

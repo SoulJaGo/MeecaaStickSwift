@@ -160,5 +160,11 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if (indexPath.row == 0) { //点击米开体温棒
+            let stickVc = StickViewController()
+            stickVc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(stickVc, animated: true)
+            self.tapTopView()//收起顶部菜单
+        }
     }
 }

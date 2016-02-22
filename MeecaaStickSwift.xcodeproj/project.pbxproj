@@ -16,6 +16,7 @@
 		965028BB1C50A66F0031062B /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965028BA1C50A66F0031062B /* KnowledgeViewController.swift */; };
 		965028BF1C50B1690031062B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 965028BE1C50B1690031062B /* MBProgressHUD.m */; };
 		965028C21C50D38A0031062B /* ProblemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965028C11C50D38A0031062B /* ProblemViewController.swift */; };
+		9663A3F41C7AA09C00D7BD67 /* StickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9663A3F31C7AA09C00D7BD67 /* StickViewController.swift */; };
 		967D8A1A1C4E0BA5004207E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967D8A191C4E0BA5004207E2 /* AppDelegate.swift */; };
 		967D8A1F1C4E0BA5004207E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967D8A1D1C4E0BA5004207E2 /* Main.storyboard */; };
 		967D8A211C4E0BA5004207E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 967D8A201C4E0BA5004207E2 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		965028BD1C50B1690031062B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		965028BE1C50B1690031062B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		965028C11C50D38A0031062B /* ProblemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemViewController.swift; sourceTree = "<group>"; };
+		9663A3F31C7AA09C00D7BD67 /* StickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickViewController.swift; sourceTree = "<group>"; };
 		967D8A161C4E0BA5004207E2 /* MeecaaStickSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeecaaStickSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		967D8A191C4E0BA5004207E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		967D8A1E1C4E0BA5004207E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,6 +180,15 @@
 			path = Problem;
 			sourceTree = "<group>";
 		};
+		9663A3F21C7AA07C00D7BD67 /* Stick(体温棒) */ = {
+			isa = PBXGroup;
+			children = (
+				9663A3F31C7AA09C00D7BD67 /* StickViewController.swift */,
+			);
+			name = "Stick(体温棒)";
+			path = Stick;
+			sourceTree = "<group>";
+		};
 		967D8A0D1C4E0BA5004207E2 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +210,7 @@
 		967D8A181C4E0BA5004207E2 /* MeecaaStickSwift */ = {
 			isa = PBXGroup;
 			children = (
+				9663A3F21C7AA07C00D7BD67 /* Stick(体温棒) */,
 				962ABB2E1C609B6000160554 /* Account(账号) */,
 				96D1B2181C5F2C5900CA693B /* GlobalTool(全局工具类) */,
 				96A51D521C5771820074EC5D /* Login(登陆) */,
@@ -507,6 +519,7 @@
 				967D8A581C4E11F2004207E2 /* SDWebImageDownloaderOperation.m in Sources */,
 				962ABB301C609CC900160554 /* Account.swift in Sources */,
 				967D8A641C4E14FA004207E2 /* HttpTool.swift in Sources */,
+				9663A3F41C7AA09C00D7BD67 /* StickViewController.swift in Sources */,
 				967D8A591C4E11F2004207E2 /* SDWebImageManager.m in Sources */,
 				967D8A5D1C4E11F2004207E2 /* UIImage+MultiFormat.m in Sources */,
 				96D1B21A1C5F2CEE00CA693B /* GlobalTool.swift in Sources */,

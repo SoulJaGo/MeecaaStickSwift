@@ -32,6 +32,15 @@ class GlobalTool: UIViewController {
         }
     }
     
+    /*成员的存储地址*/
+    var MemberArchivePath:String {
+        get{
+            let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last
+            let path = docPath?.stringByAppendingString("/member.archive")
+            return path!
+        }
+    }
+    
     static func shared()->(GlobalTool) {
         return GlobalToolObj
     }
