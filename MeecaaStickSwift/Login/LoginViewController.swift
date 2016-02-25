@@ -150,7 +150,9 @@ class LoginViewController: UIViewController {
         } else if (phoneTextField.text?.characters.count < 11) {
             GlobalTool.shared().showHud("请输入正确的手机号码!", mode: MBProgressHUDMode.Text)
         } else {
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             HttpTool.shared().loginWithPhoneNumberAndPassword(self.phoneTextField.text!, password: self.passwordTextField.text!, completionHandler: { (responseData) -> Void in
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 if (responseData.result.isFailure) {
                     GlobalTool.shared().showHud("网络不给力哦!", mode: MBProgressHUDMode.Text)
                 } else {

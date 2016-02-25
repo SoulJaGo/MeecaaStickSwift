@@ -23,6 +23,9 @@ class GlobalTool: UIViewController {
         get{
             return ""
         }
+        set{
+            self.DeviceToken = newValue
+        }
     }
     
     /*手机的DeviceSystemVersion*/
@@ -38,6 +41,38 @@ class GlobalTool: UIViewController {
             let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last
             let path = docPath?.stringByAppendingString("/member.archive")
             return path!
+        }
+    }
+    
+    /*取出所有成员*/
+    var MembersInformation:Array<AnyObject> {
+        get {
+            let manager = NSFileManager.defaultManager()
+            if (manager.fileExistsAtPath(MemberArchivePath) == false) { //不存在登陆的文件
+                return []
+            } else {
+                let  MemberInfo = NSKeyedUnarchiver.unarchiveObjectWithFile(MemberArchivePath) as! Array<AnyObject>
+                return MemberInfo
+            }
+        }
+    }
+    
+    /*取出默认成员*/
+    var DefaultMemberInformation:Dictionary<String,AnyObject> {
+        get {
+            if(MembersInformation.isEmpty) {
+                return [:]
+            } else {
+                var MemberDict:Dictionary<String,AnyObject> = [:]
+                for memberInfo in MembersInformation {
+                    let dict = memberInfo as! Dictionary<String,AnyObject>
+                    if (dict["isdefault"]?.integerValue == 1) {
+                        MemberDict = dict
+                        break
+                    }
+                }
+                return MemberDict
+            }
         }
     }
     

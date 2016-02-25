@@ -54,4 +54,18 @@ class HttpTool: UIViewController {
         let urlStr = HOST.stringByAppendingString("api.php?m=open&c=account&a=login")
         Alamofire.request(.POST, urlStr, parameters: params).responseJSON(completionHandler: completionHandler)
     }
+    
+    /*上传问题*/
+    func submitProblemWithText(text:String,completionHandler:Response<AnyObject, NSError>->Void) {
+        var params:Dictionary<String,AnyObject> = [:]
+        params["member_id"] = GlobalTool.shared().DefaultMemberInformation["id"]
+        params["messages"] = text
+        params["version"] = VERSION
+        params["device_brand"] = "apple"
+        params["device_model"] = "iPhone 6S Plus"
+        params["device_system"] = "ios"
+        params["device_version"] = GlobalTool.shared().DeviceSystemVersion
+        let urlStr = HOST.stringByAppendingString("api.php?m=open&c=meecaa&a=messageAdd")
+        Alamofire.request(.POST, urlStr,parameters:params).responseJSON(completionHandler: completionHandler)
+    }
 }

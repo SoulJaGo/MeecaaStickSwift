@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ProblemViewController: UIViewController,UITextViewDelegate {
     var placeholderLabel = UILabel()
+    var myTextView = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class ProblemViewController: UIViewController,UITextViewDelegate {
         textView.delegate = self
         textView.becomeFirstResponder()
         self.view.addSubview(textView)
+        self.myTextView = textView
         
         self.placeholderLabel = UILabel(frame: CGRectMake(0,5,180,21))
         self.placeholderLabel.text = "请输入您的问题,谢谢!"
@@ -43,6 +46,37 @@ class ProblemViewController: UIViewController,UITextViewDelegate {
     func setupNav() {
         self.navigationItem.title = "问题反馈"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_icon"), style: .Done, target: self, action: Selector("goBack"))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "提交", style: .Done, target: self, action: Selector("onClickSubmit"))
+    }
+    
+    /*提交问题*/
+    func onClickSubmit() {
+        self.view.endEditing(true)
+        if (self.myTextView.text.characters.count == 0) {
+            GlobalTool.shared().showHud("请填写问题!", mode: .Text)
+        } else {
+            /*判断是否登陆*/
+            if (GlobalTool.shared().MembersInformation.isEmpty ) {
+                GlobalTool.shared().showHud("请您先登陆!", mode: .Text)
+                self.navigationController?.pushViewController(LoginViewController(), animated: true)
+            } else {
+                MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                HttpTool.shared().submitProblemWithText(self.myTextView.text, completionHandler: { (responseData) -> Void in
+                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                    if (responseData.result.isFailure) {
+                        GlobalTool.shared().showHud("网络不给力哦!", mode: MBProgressHUDMode.Text)
+                    } else {
+                        let json = JSON(responseData.result.value!)
+                        let status = json["status"].intValue
+                        if (status == 1) {
+                            GlobalTool.shared().showHud("提交成功!", mode: MBProgressHUDMode.Text)
+                        } else {
+                            GlobalTool.shared().showHud("提交失败!", mode: MBProgressHUDMode.Text)
+                        }
+                    }
+                })
+            }
+        }
     }
     
     /*返回*/
