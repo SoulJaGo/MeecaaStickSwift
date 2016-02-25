@@ -18,6 +18,12 @@ class Account: NSObject,NSCoding {
         self.password = aDecoder.decodeObjectForKey("password") as! String
     }
     
+    init(phone:String,password:String) {
+        super.init()
+        self.phone = phone
+        self.password = password
+    }
+    
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.phone, forKey: "phone")
         aCoder.encodeObject(self.password, forKey: "password")

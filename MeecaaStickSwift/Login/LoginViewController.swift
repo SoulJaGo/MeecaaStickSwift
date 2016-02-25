@@ -162,15 +162,12 @@ class LoginViewController: UIViewController {
                         let msg = json["msg"].stringValue as String
                         GlobalTool.shared().showHud(msg, mode: .Text)
                     } else { //登陆成功
-                        var accountDict:Dictionary<String,AnyObject> = [:]
-                        accountDict["phone"] = self.phoneTextField.text!
-                        accountDict["password"] = self.passwordTextField.text!
-                        let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last
-                        let archivePath = docPath?.stringByAppendingString("/account.archive")
-                        NSKeyedArchiver.archiveRootObject(accountDict, toFile: archivePath!)
+                        let account:Account = Account(phone: self.phoneTextField.text!, password: self.passwordTextField.text!)
+                        NSKeyedArchiver.archiveRootObject(account, toFile: GlobalTool.shared().AccountArchivePath)
+                        
                         let data = json["data"].rawValue
-                        let dataArchivePath = docPath?.stringByAppendingString("/member.archive")
-                        NSKeyedArchiver.archiveRootObject(data, toFile: dataArchivePath!)
+                        let dataArchivePath = GlobalTool.shared().MemberArchivePath
+                        NSKeyedArchiver.archiveRootObject(data, toFile: dataArchivePath)
                         GlobalTool.shared().showHud("登陆成功!", mode: .Text)
                         self.navigationController?.popViewControllerAnimated(true)
                     }

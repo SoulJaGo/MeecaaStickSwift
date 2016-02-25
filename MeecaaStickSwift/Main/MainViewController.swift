@@ -7,9 +7,15 @@
 //  主视图
 
 import UIKit
+import SwiftyJSON
 
 class MainViewController: UIViewController,LeftMenuViewDelegate,RightMenuDelegate {
     var mainTabBarController = MainTabBarController()
+    override class func initialize () {
+        super.initialize()
+        /*验证登陆*/
+        self.init().performSelector(Selector("validLogin"), withObject: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         /*主页面*/
@@ -31,6 +37,20 @@ class MainViewController: UIViewController,LeftMenuViewDelegate,RightMenuDelegat
         self.view.insertSubview(rightMenuVc.view, belowSubview: mainController.view)
         rightMenuVc.delegate = self
         
+        /*添加通知*/
+        self.addNotification()
+    }
+    
+    func addNotification() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("validLoginError"), name: "ValidLoginErrorNotification", object: nil)
+    }
+    
+    func validLoginError() {
+        let homeNav = self.mainTabBarController.viewControllers![0] as! BasicNavigationController
+        
+        let loginVc = LoginViewController()
+        loginVc.hidesBottomBarWhenPushed = true
+        homeNav.pushViewController(loginVc, animated: true)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -73,5 +93,27 @@ class MainViewController: UIViewController,LeftMenuViewDelegate,RightMenuDelegat
             ProblemVc.hidesBottomBarWhenPushed = true
             homeNav.pushViewController(ProblemVc, animated: true)
         }
+    }
+    
+    func validLogin() {
+        if (NSFileManager.defaultManager().fileExistsAtPath(GlobalTool.shared().AccountArchivePath)) { //验证是否有登陆过
+            let account:Account = NSKeyedUnarchiver.unarchiveObjectWithFile(GlobalTool.shared().AccountArchivePath)! as! Account
+            HttpTool.shared().loginWithPhoneNumberAndPassword(account.phone, password: account.password, completionHandler: { (responseData) -> Void in
+                if (responseData.result.isFailure) {
+                    GlobalTool.shared().showHud("网络不给力哦!", mode: .Text)
+                } else {
+                    let json = responseData.result.value
+                    let status = JSON(json!)["status"].int!
+                    if (status != 1) {
+                        NSNotificationCenter.defaultCenter().postNotificationName("ValidLoginErrorNotification", object: nil)
+                        GlobalTool.shared().showHud("验证失败，请重新登陆", mode: .Text)
+                    }
+                }
+            })
+        }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }

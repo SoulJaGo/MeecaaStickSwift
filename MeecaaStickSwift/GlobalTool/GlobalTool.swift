@@ -35,6 +35,15 @@ class GlobalTool: UIViewController {
         }
     }
     
+    /*账号密码存储地址*/
+    var AccountArchivePath:String {
+        get{
+            let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last
+            let path = docPath?.stringByAppendingString("/account.archive")
+            return path!
+        }
+    }
+    
     /*成员的存储地址*/
     var MemberArchivePath:String {
         get{
